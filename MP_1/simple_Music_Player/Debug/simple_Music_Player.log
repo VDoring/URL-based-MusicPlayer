@@ -1,0 +1,6 @@
+﻿  main.c
+  Function_1.c
+c:\users\hodor\source\repos\simple_music_player\simple_music_player\function_1.c(12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 'fopen' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...
+  simple_Music_Player.vcxproj -> C:\Users\hodor\source\repos\simple_Music_Player\Debug\simple_Music_Player.exe
