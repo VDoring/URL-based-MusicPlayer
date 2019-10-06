@@ -9,7 +9,7 @@
 
 ## Motivation
 
-- #### 유투브링크를 일일이 복사 붙여넣기하는게 귀찮고 비효율적이였기에, 이런 역할을 좀 더 편리하게해줄 프로그램을 생가하게 되었다.
+- #### 유튜브링크를 일일이 복사 붙여넣기하는게 귀찮고 비효율적이였기에, 이런 역할을 좀 더 편리하게해줄 프로그램을 생각하게 되었다.
 - #### Copying and pasting YouTube links was cumbersome and inefficient, so I came to think of a program that would simplify this role.
 
 <br/>
@@ -48,14 +48,14 @@
 ### 5.
 ![5](https://user-images.githubusercontent.com/50266731/66263855-b8ed1780-e834-11e9-9aa9-7ff804795222.PNG)
 #### 재생 형식을 선택하세요. 현재는 1번만 작동합니다
-#### Please select a replay formatNow, you can only use number 1
+#### Please select a replay format. Now, you can only use number 1
 
 
 <br/>
 
 ### 6.
 ![6](https://user-images.githubusercontent.com/50266731/66263856-bab6db00-e834-11e9-8fac-bfd6bfa0e2f7.PNG)
-#### 이후 크롬 프라이빗모드로 재생되며, 음악을 다 들엇을때 다음곡을 재생할껀지에 대한 질문에 답합니다
+#### 이후 크롬 프라이빗모드로 재생되며, 음악을 다 들었을때 다음곡을 재생할껀지에 대한 질문에 답합니다
 #### It will then be played in chrome private mode, and when you've finished listening to the music, answer the question if you'll play the next song
 
 <br/>
