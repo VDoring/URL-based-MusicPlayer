@@ -19,8 +19,8 @@
 
 ### 1.
 ![1](https://user-images.githubusercontent.com/50266731/66263846-8a6f3c80-e834-11e9-9b96-f6606203160f.PNG)
-#### 다운로드 받아 압축을 풀기
-#### Download and extract the file.
+#### [다운로드](https://github.com/VDoring/URL-based-MusicPlayer/releases) 받아 압축을 풀기
+#### [Download](https://github.com/VDoring/URL-based-MusicPlayer/releases) and extract the file.
 
 <br/>
 
