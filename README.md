@@ -32,7 +32,7 @@
 <br/>
 
 ### 3.
-![3](https://user-images.githubusercontent.com/50266731/66263853-b38fcd00-e834-11e9-8ff4-45679ed09694.PNG)
+![A or B](https://user-images.githubusercontent.com/50266731/67374468-2e3e4380-f5bc-11e9-9659-9b7c596f17a3.PNG)
 #### 사진과 같은 형식으로 링크넣기. (링크는 무조껀 앞에 있어야 합니다!)
 #### Insert a link as in a picture. (The link should be in front!)
 
