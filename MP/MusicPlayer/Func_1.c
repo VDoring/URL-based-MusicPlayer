@@ -8,7 +8,7 @@ FILE *fp; // .txt파일 전용 파일포인터
 
 int *line_num; // .txt파일 라인 수 임시저장
 int line_number; // .txt파일 라인 수 저장
-void Musiclist_line_Read() { // .txt파일 라인 수 카운팅
+void Musiclist_line_Read_1() { // .txt파일 라인 수 카운팅
 
 	fopen_s(&fp, "Mlist.txt", "rt");
 	int line_count = 0;
@@ -33,11 +33,11 @@ char *contact = NULL; //cache_Music2 문자열에서 자른 나머지 문자열을 저장
 const char CMD_Static_command[100] = { "start chrome --incognito" }; // 크롬 시크릿모드 실행 명령어
 char Musiclink[8192] = { 0, }; // 최종 음악재생 명령어
 char *ptr_linkcut_result; // 오직 링크만 저장
-void  Musiclist_FirstPlay() { // 최초 음악 재생
+void  Musiclist_FirstPlay_1() { // 최초 음악 재생
 
 	fopen_s(&fp, "Mlist.txt", "rt");
 	fgets(fileread, sizeof(fileread), fp); // .txt파일 한줄을 읽어 fileread에 저장
-
+	
 	sprintf_s(cache_Music1, sizeof(cache_Music1), "%s", CMD_Static_command); // CMD_Static_command = cache_Music1 , 명령어 저장
 	sprintf_s(cache_Music2, sizeof(cache_Music2), "%s", fileread); // fileread = cache_Music2 , 음악 링크 저장
 
@@ -50,7 +50,7 @@ void  Musiclist_FirstPlay() { // 최초 음악 재생
 }
 
 
-void Musiclist_ContinuePlay() { // (최초 이후)음악 재생
+void Musiclist_ContinuePlay_1() { // (최초 이후)음악 재생
 	
 	fgets(fileread, sizeof(fileread), fp);
 
