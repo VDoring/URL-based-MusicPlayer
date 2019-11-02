@@ -3,7 +3,7 @@
 ## Introduction
 
 - #### URL(인터넷 주소)를 사용하는 간단하고 가벼운 음악 플레이어입니다.
-- #### A simple, lightweight music player that uses an Internet address (URL).
+- #### A simple, lightweight music player that uses an Internet address(URL).
 
 <br/>
 
@@ -47,8 +47,8 @@
 
 ### 5.
 ![5](https://user-images.githubusercontent.com/50266731/66263855-b8ed1780-e834-11e9-9aa9-7ff804795222.PNG)
-#### 재생 형식을 선택하세요. 현재는 1번만 작동합니다
-#### Please select a replay format. Now, you can only use number 1
+#### 재생 형식을 선택하세요. 현재는 1번, 2번만 작동합니다
+#### Please select a replay format. Now, you can only use Function 1 and 2. 
 
 
 <br/>
@@ -62,13 +62,13 @@
 
 ### 7.
 ![7](https://user-images.githubusercontent.com/50266731/66263857-bc809e80-e834-11e9-8a36-4a372b90b829.PNG)
-#### 이후 반복...
-#### Continue...
+#### 이후 반복..
+#### Continue..
 -----------
 
 <br/>
 
-## ▧ __개발중입니다..__ | __Under Development..__
+## ▧ __개발중인 프로젝트__ | __Under Development Project__
 - #### 개발중인 자료들은 "version" 브랜치에 있습니다!
 - #### The contents under development are in the "version" branch.
 
