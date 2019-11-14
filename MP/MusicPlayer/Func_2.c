@@ -32,7 +32,10 @@ char cache_Music2_2[8092] = { 0, };// fileread 문자열과 같은 역할
 char Musiclink_2[8192] = { 0, }; // 최종 음악재생 명령어
 char *ptr_linkcut_result; // 오직 링크만 저장
 char *contact_2 = NULL; //cache_Music2_2 문자열에서 자른 나머지 문자열을 저장
+int strCopy; //최초 fileread(링크)를 before_fileread에 복사할지 결정하는 변수
 void Musiclist_FirstPlay_2() {
+
+	strCopy = 0;
 
 	fopen_s(&fp, "Mlist.txt", "rt");
 	
@@ -53,116 +56,39 @@ void Musiclist_FirstPlay_2() {
 
 	system(Musiclink_2);
 
-	//line_number--;
-
 	fclose(fp);
 }
 
 int playcount = 0; //몇번 재생했는지를 세는 변수
 int linkcheck_line_number = 0;  //기존 line_number의 값을 조작하게 되면 플레이에 문제가 있으므로, line_number와 동등한 값을 가진 (Musiclist_ContinuePlay_2함수 내에서만 사용하는)변수
+char before_fileread[4096] = { 0, }; //가장 처음 실행한 링크를 저장(Firstplay)
 void Musiclist_ContinuePlay_2() {
-
-	//int Conplay2_line_number = line_number;
 
 	fopen_s(&fp, "Mlist.txt", "rt");
 
-	/*
-	//구상안 0
-	Conplay2_line_number--;
-	
-	//ERROR. 라인 띄어쓰기를 고려하여 차례로 줄이 위로 가도록 만들기
-	for (int i = 0; i < Conplay2_line_number; i++) { //띄어쓰기 되있는걸 무시하고 링크재생하는 구문
-		if (i == 0) fgets(fileread, sizeof(fileread), fp); //처음 실행할때만 한줄을 먼저 읽게 함
-		if (fileread[0] == '\n') { //만약 .txt파일중간에 줄이 띄워져 있을경우
-			Conplay2_line_number--;
-			fgets(fileread, sizeof(fileread), fp); //다음 링크로 넘어감
-		}
-		else fgets(fileread, sizeof(fileread), fp);
-	}
-	*/
-
-	/*
-	//구상안 1
-	line_number--;
-
-	int Initial_play = 0;
-
-	for (int i = 0; i < line_number; i++) { //띄어쓰기 되있는걸 무시하고 링크재생하는 구문
-		if (i == 0) {
-			fgets(fileread, sizeof(fileread), fp); //처음 실행할때만 한줄을 먼저 읽게 함
-			Initial_play++;
-		}
-		if (fileread[0] == '\n') { //만약 .txt파일중간에 줄이 띄워져 있을경우
-			while (1) {
-				line_number--;
-				fgets(fileread, sizeof(fileread), fp); //다음 링크로 넘어감
-				if (fileread[0] != '\n') break; //링크가 발견됬을때
-				else printf("반복");
-			}
-		}
-		if (Initial_play == 1) {
-
-		}
-	}
-	*/
-
-	/*
-	//구상안 2
-	line_number--;
-	fgets(fileread, sizeof(fileread), fp);
-	int check_line_number = 0;
-
-	int Before_if_Run = 0; //밑에 for문안에 아무것도 실행되지 않을경우
-	int After_if_Run = 0; //밑에 for문안에 아무것도 실행되지 않을경우
-
-	for (int i = 0; i < line_number; i++) {
-		if (fileread[0] == '\n') {
-			check_line_number = line_number;
-			line_number--;
-			After_if_Run++;
-			for (int j = 0; j < check_line_number; j++) {
-				fgets(fileread, sizeof(fileread), fp);
-			}
-			if (fileread[0] != '\n') break;
-			//else continue;
-		}
-		if (Before_if_Run < After_if_Run) {
-			Before_if_Run++;
-			fgets(fileread, sizeof(fileread), fp);
-		}
-		else if (Before_if_Run == After_if_Run) {
-			fgets(fileread, sizeof(fileread), fp);
-		}
-	}
-	*/
-	/*
-	//구상안 2 원본내용
-	linecount--;
-	fgets(...);
-
-	for(int i = 0; i < linecount; i++) {
-
-	if (fileread[0] == '\n') { //공백일때
-		line_count--; //공백 라인 수 제거
-		for(int j = 0; j < line_count; j++) { //공백 라인 제거후 다시 찾기
-			fgets(...); //파일 링크 읽음
-		}
-		if(fileread[0] != '\n') break; //링크일때
-		else printf("return"); //링크 아니라면
-	}
-
-	*/
-
-
-	//line_number--;
-
 	linkcheck_line_number = line_number; //main.c에서도 line_number를 사용하므로, 같은 값을 가지는 대체변수 선언
 
+
+	if (strCopy == 0) { //최초 한정
+		strcpy_s(before_fileread, sizeof(fileread), fileread); //fileread내용을 before_fileread로 복사
+		strCopy++;
+	}
+
+
+AGAIN:
 	for (int j = 0; j < linkcheck_line_number - playcount; j++) { // (.txt파일 전체 줄 갯수 - 재생된 휫수)만큼 반복
 		fgets(fileread, sizeof(fileread), fp); // 결과적으로 마지막 링크에서 한칸 위 링크가 재생되게 됨
-		//linkcheck_line_number--;
 	}
 	playcount++;
+
+	if (fileread[0] == '\n') { //빈칸일때
+		linkcheck_line_number--; //빈칸도 줄 수로 채웠을 것이므로 하나 마이너스
+		playcount--; //빈칸이었기 때문에 플레이했다고 치치 않아야한다
+		line_number--; //linkcheck_line_number와 똑같은 이유
+		rewind(fp); //위치 초기화
+		goto AGAIN;
+	}
+
 
 	sprintf_s(cache_Music1_2, sizeof(cache_Music1_2), "%s", CMD_Static_command_2);
 	sprintf_s(cache_Music2_2, sizeof(cache_Music2_2), "%s", fileread);
@@ -173,4 +99,13 @@ void Musiclist_ContinuePlay_2() {
 
 	system(Musiclink_2);
 
+
+	rewind(fp);
+	
 }
+
+
+/* 발견한 버그
+2번기능 한번 사용후 다시 2번기능 사용시 작동에러 발생
+
+*/
