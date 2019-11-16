@@ -1,5 +1,7 @@
 # URL-based-MusicPlayer
 
+![MPMainPic](https://user-images.githubusercontent.com/50266731/68986830-df0bcb80-0866-11ea-83a7-711d1d74aede.PNG)
+
 ## Introduction
 
 - #### URL(인터넷 주소)를 사용하는 간단하고 가벼운 음악 플레이어입니다.
@@ -15,6 +17,7 @@
 <br/>
 
 ---------
+
 ## How to use?
 
 ### 1.
