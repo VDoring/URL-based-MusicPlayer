@@ -11,8 +11,8 @@
 
 ## Motivation
 
-- #### 유튜브링크를 일일이 복사 붙여넣기하는게 귀찮고 비효율적이였기에, 이런 역할을 좀 더 편리하게해줄 프로그램을 생각하게 되었다.
-- #### Copying and pasting YouTube links was cumbersome and inefficient, so I came to think of a program that would simplify this role.
+- #### 저는 메모장에 음악 링크를 저장해 복사/붙여넣기해 듣습니다. 하지만 링크를 일일이 복사 붙여넣기하는게 귀찮고 비효율적이였기에, 이런 역할을 좀 더 편리하게해줄 프로그램을 생각하게 되었습니다.
+- #### When I listen to music, I save the music link in a notepad and copy/paste it. But copying and pasting links was cumbersome and inefficient, so I came to think of a program that would simplify this role.
 
 <br/>
 
