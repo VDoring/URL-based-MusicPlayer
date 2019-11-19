@@ -145,6 +145,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Func_3.c" />
     <ClCompile Include="GUI.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>

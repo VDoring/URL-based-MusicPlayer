@@ -14,6 +14,7 @@ int main() {
 
 			if (play_input == 1) { //곡 선택 모드 1번 선택시
 				Musiclist_line_Read_1();
+				WinTitleTotal();
 				Musiclist_FirstPlay_1();
 				for (int i = 0; i < line_number; i++) { // .txt파일의 줄 수 만큼 반복
 					Question_Continue(); // 계속 재생할지 물어본다
@@ -25,6 +26,7 @@ int main() {
 
 			else if (play_input == 2) { //곡 선택 모드 2번 선택시
 				Musiclist_line_Read_2(); //첫 곡을 플레이하기 위해 라인 갯수를 센다
+				WinTitleTotal();
 				Musiclist_FirstPlay_2(); //첫 곡 플레이
 				for (int i = 0; i < line_number; i++) {
 					Question_Continue();
@@ -33,11 +35,11 @@ int main() {
 					}
 					else if (play_continue_input == 2) return 3;
 				}
-				File_close();
+				File_close2();
 			}
 
 			else if (play_input == 3) { //곡 선택 모드 3번 선택시
-				printf("3번 개발중");
+				Musiclist_line_Read_3();
 				return 4;
 			}
 		}

@@ -25,6 +25,11 @@ void Musiclist_line_Read_2() { // .txt파일 라인 수 카운팅
 
 }
 
+const char WindowTitleCMD2[10] = { "title" }; //CMD에 고정적으로 입력되는 명령어
+int NowCount2 = 0; //현재 몇번 실행했는지를 담는 변수
+int WindowTitleNowcount; //윈도우타이틀 출력용 Nowcount2
+int WindowtitleTotalcount; // 빈 라인을 제외한 .txt파일의 총 라인 수
+
 char fileread[4096]; // .txt파일 한줄읽기용 문자열
 const char CMD_Static_command_2[100] = { "start chrome --incognito" }; // 크롬 시크릿모드 실행 명령어
 char cache_Music1_2[100] = { 0, };// 명령어 저장
@@ -33,6 +38,7 @@ char Musiclink_2[8192] = { 0, }; // 최종 음악재생 명령어
 char *ptr_linkcut_result; // 오직 링크만 저장
 char *contact_2 = NULL; //cache_Music2_2 문자열에서 자른 나머지 문자열을 저장
 int strCopy; //최초 fileread(링크)를 before_fileread에 복사할지 결정하는 변수
+char WindowTitle2[110] = { 0, }; //최종 아티틀 명령어
 void Musiclist_FirstPlay_2() {
 
 	strCopy = 0;
@@ -57,6 +63,16 @@ void Musiclist_FirstPlay_2() {
 	system(Musiclink_2);
 
 	fclose(fp);
+
+
+	// WindowTitle 출력
+	NowCount2++;
+
+	WindowTitleNowcount = NowCount2;
+
+	sprintf_s(WindowTitle2, sizeof(WindowTitle2), "%s Playing.. [%d/%d]", WindowTitleCMD2, WindowTitleNowcount, WindowtitleTotalcount);
+
+	system(WindowTitle2);
 }
 
 int playcount = 0; //몇번 재생했는지를 세는 변수
@@ -101,9 +117,23 @@ AGAIN:
 
 
 	rewind(fp);
+
+
+	// WindowTitle 출력
+	NowCount2++;
+
+	WindowTitleNowcount = NowCount2;
+
+	sprintf_s(WindowTitle2, sizeof(WindowTitle2), "%s Playing.. [%d/%d]", WindowTitleCMD2, WindowTitleNowcount, WindowtitleTotalcount);
+
+	system(WindowTitle2);
 	
 }
 
+void File_close2() { // .txt 파일 닫음
+	fclose(fp);
+	NowCount2 = 0;
+}
 
 /* 발견한 버그
 2번기능 한번 사용후 다시 2번기능 사용시 작동에러 발생
