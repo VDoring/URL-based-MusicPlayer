@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
+#include <string.h>
+
+FILE *fp; // .txt파일 전용 파일포인터
+
+int *line_num; // .txt파일 라인 수 임시저장
+int line_number; // .txt파일 라인 수 저장
+void Musiclist_line_Read_3() { // .txt파일 라인 수 카운팅
+
+	fopen_s(&fp, "Mlist.txt", "rt");
+	int line_count = 0;
+	char tmp;
+
+	while (fscanf_s(fp, "%c", &tmp, sizeof(tmp)) != EOF) { // .txt파일에 저장된 글자 하나하나 검사해 EOF인지 확인
+		if (tmp == '\n')
+			line_count++; // 파일 줄 수 최초 저장
+	}
+	line_num = &line_count;
+	line_number = *line_num; // .txt파일 라인 수 최종 저장
+
+	fclose(fp);
+
+}
+
+
+int random_number; //rand함수의 값을 담는 곳
+int linkRandom_line_number = 0;
+int Random; //random_number의 값을 받는 변수(랜덤숫자 최종)
+void Random_Select() {
+	linkRandom_line_number = line_number; //line_number는 main.c에서도 사용하므로 혼동 생기지않게 똑같은 값을 가진 변수를 따로선언
+	linkRandom_line_number++;
+
+	random_number = rand();
+	Random = (int)random_number % linkRandom_line_number;
+}
+
+
+char fileread[4096]; // .txt파일 한줄읽기용 문자열
+const char CMD_Static_command_3[100] = { "start chrome --incognito" }; // 크롬 시크릿모드 실행 명령어
+char cache_Music1_3[100];// 명령어 저장
+char cache_Music2_3[8092];// fileread 문자열과 같은 역할
+char *ptr_linkcut_result; // 오직 링크만 저장
+char *contact_3 = NULL; //cache_Music2_2 문자열에서 자른 나머지 문자열을 저장
+char Musiclink_3[8192] = { 0, }; // 최종 음악재생 명령어
+void Musiclist_Play() {
+	fopen_s(&fp, "Mlist.txt", "rt");
+	rewind(fp);
+
+	for (int i = 0; i < Random; i++) {
+		fgets(fileread, sizeof(fileread), fp);
+	}
+	
+	//나중에 빈 라인 처리코드 만들기
+
+	sprintf_s(cache_Music1_3, sizeof(cache_Music1_3), "%s", CMD_Static_command_3);
+	sprintf_s(cache_Music2_3, sizeof(cache_Music2_3), "%s", fileread);
+
+	ptr_linkcut_result = strtok_s(cache_Music2_3, " ", &contact_3); // 한줄 읽은 내용을 띄어쓰기 기준으로 나누어 ptr_linkcut_result에 저장
+
+	sprintf_s(Musiclink_3, sizeof(Musiclink_3), "%s %s", cache_Music1_3, ptr_linkcut_result); // 최종 음악재생 명령어
+
+	system(Musiclink_3);
+
+	fclose(fp);
+
+}
+
+
+
+/*
+Bodyhit_Attack_random_number = rand();
+Bodyhit_Attack = (int)Bodyhit_Attack_random_number % 101; //랜덤숫자 0~100
+*/
+
+/*
+앞으로의 계획
+
+rand함수를 사용한다. 다만 그 범위는 "첫 라인(1?) ~ line_number" 까지로 한다.
+
+이후 랜덤숫자가 나온데로 for와 fgets를 사용해 링크를 읽은 다음 재생한다.
+
+(반복)
+
+*/
+
+/*
+오류)
+
+특정 곡만 실행되는 현상이 있음.
+
+*/
