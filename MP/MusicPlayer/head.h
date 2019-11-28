@@ -29,8 +29,12 @@ void File_close2();
 
 /* 음악재생 - 3번 기능 */
 void Musiclist_line_Read_3();
+void Random_Select(); //랜덤한 수로 링크를 정한다
+void Musiclist_Play(); //음악플레이
+
+/*
 void Musiclist_FirstPlay_3();
 void Musiclist_ContinuePlay_3();
-
+*/
 
 #endif

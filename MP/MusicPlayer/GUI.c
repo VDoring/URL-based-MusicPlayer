@@ -8,21 +8,6 @@ int main_input; // 메인화면 입력
 int play_input; // 곡 재생모드 입력
 int play_continue_input; // 계속 음악 재생할지를 묻는 것에 대한 값 입력
 char WindowSize[40] = { "mode con cols=40 lines=13" }; //창 크기 설정 명령어
-/*
-void WindowTitle(char title) {
-	char WinTitleCMD[100] = { "title" };
-
-	char InputTitle = title;
-	char WinTitleName[100] = { 0, };
-	sprintf_s(WinTitleName, sizeof(title), "%s", InputTitle);
-
-	char WinTitle[200] = { 0, };
-	sprintf_s(WinTitle, sizeof(WinTitle), "%s %s", WinTitleCMD, WinTitleName);
-
-	system(WinTitle);
-}
-*/
-
 
 gotoxy(int x, int y) { // 글자 위치 조정 함수
 	COORD pos = { x, y };
@@ -32,7 +17,6 @@ gotoxy(int x, int y) { // 글자 위치 조정 함수
 
 void mainGUI() { // 메인 화면
 	system(WindowSize); int x = 0, y = 0;
-	//WindowTitle("Music Player");
 	system("title Music Player");
 
 	gotoxy(x + 8, y + 1); printf("[ [ VDoring's Player ] ]");
@@ -45,7 +29,6 @@ void mainGUI() { // 메인 화면
 
 void playmodeGUI() { // 재생 모드 선택
 	system(WindowSize); int x = 0, y = 0;
-	//WindowTitle("Music Player");
 	system("title Music Player");
 
 	gotoxy(x + 11, y + 1); printf("[ [ Play Mode ] ]");

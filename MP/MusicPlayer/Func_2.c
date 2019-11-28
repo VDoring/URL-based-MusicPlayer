@@ -131,6 +131,7 @@ AGAIN:
 }
 
 void File_close2() { // .txt 파일 닫음
+	playcount = 0; //재생휫수 초기화
 	fclose(fp);
 	NowCount2 = 0;
 }
