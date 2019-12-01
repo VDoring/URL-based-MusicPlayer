@@ -27,14 +27,18 @@ void Musiclist_line_Read_3() { // .txt파일 라인 수 카운팅
 
 
 int random_number; //rand함수의 값을 담는 곳
-int linkRandom_line_number = 0;
+int linkRandom_line_number = 0; // .txt파일 라인 수 저장
 int Random; //random_number의 값을 받는 변수(랜덤숫자 최종)
 void Random_Select() {
 	linkRandom_line_number = line_number; //line_number는 main.c에서도 사용하므로 혼동 생기지않게 똑같은 값을 가진 변수를 따로선언
-	linkRandom_line_number++;
-
-	random_number = rand();
-	Random = (int)random_number % linkRandom_line_number;
+	linkRandom_line_number += 2;
+	Random = 0;
+	
+	while (Random <= 0) { // Random이 1 이상이 될때까지 반복
+		srand((unsigned)time(NULL)); //프로그램 실행시마다 다른 랜덤숫자가 나오게 된다
+		random_number = rand();
+		Random = (int)random_number % linkRandom_line_number; // Random은 난수와 라인 수+2의 나머지다
+	}
 }
 
 

@@ -100,8 +100,8 @@ AGAIN:
 	if (fileread[0] == '\n') { //빈칸일때
 		linkcheck_line_number--; //빈칸도 줄 수로 채웠을 것이므로 하나 마이너스
 		playcount--; //빈칸이었기 때문에 플레이했다고 치치 않아야한다
-		line_number--; //linkcheck_line_number와 똑같은 이유
-		rewind(fp); //위치 초기화
+		line_number--; //빈칸도 줄 수로 채웠을 것이므로 하나 마이너스
+		rewind(fp); //라인 위치 초기화
 		goto AGAIN;
 	}
 
