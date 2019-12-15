@@ -1,0 +1,15 @@
+﻿  Func_1.c
+c:\users\hodor\source\repos\musicplayer\musicplayer\func_1.c(19): warning C4477: 'fscanf_s' : 서식 문자열 '%c'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'size_t'입니다.
+  c:\users\hodor\source\repos\musicplayer\musicplayer\func_1.c(19): note: 이 인수는 버퍼 크기로 사용됩니다.
+  Func_2.c
+c:\users\hodor\source\repos\musicplayer\musicplayer\func_2.c(17): warning C4477: 'fscanf_s' : 서식 문자열 '%c'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'size_t'입니다.
+  c:\users\hodor\source\repos\musicplayer\musicplayer\func_2.c(17): note: 이 인수는 버퍼 크기로 사용됩니다.
+  Func_3.c
+c:\users\hodor\source\repos\musicplayer\musicplayer\func_3.c(17): warning C4477: 'fscanf_s' : 서식 문자열 '%c'에 'unsigned int' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'size_t'입니다.
+  c:\users\hodor\source\repos\musicplayer\musicplayer\func_3.c(17): note: 이 인수는 버퍼 크기로 사용됩니다.
+  GUI.c
+  main.c
+  코드를 생성하고 있습니다.
+  All 27 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  MusicPlayer.vcxproj -> C:\Users\hodor\source\repos\MusicPlayer\x64\Release\MusicPlayer.exe
