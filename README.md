@@ -51,7 +51,7 @@
 ### 5.
 ![5](https://user-images.githubusercontent.com/50266731/66263855-b8ed1780-e834-11e9-9aa9-7ff804795222.PNG)
 #### 재생 형식을 선택하세요. 현재는 1번, 2번, 3-1만 작동합니다.
-#### Please select a replay format. Now, you can only use Function 1, 2 뭉 3-1. 
+#### Please select a replay format. Now, you can only use Function 1, 2 and 3-1. 
 
 
 <br/>
