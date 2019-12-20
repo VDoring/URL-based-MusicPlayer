@@ -29,7 +29,7 @@ void Musiclist_line_Read_3() { // .txt파일 라인 수 카운팅
 int random_number; //rand함수의 값을 담는 곳
 int linkRandom_line_number = 0; // .txt파일 라인 수 저장
 int Random; //random_number의 값을 받는 변수(랜덤숫자 최종)
-void Random_Select() {
+void Random_Select() { //난수 기반으로 재생할 링크를 정하는 함수
 	linkRandom_line_number = line_number; //line_number는 main.c에서도 사용하므로 혼동 생기지않게 똑같은 값을 가진 변수를 따로선언
 	linkRandom_line_number += 2;
 	Random = 0;
@@ -71,28 +71,3 @@ void Musiclist_Play() {
 	fclose(fp);
 
 }
-
-
-
-/*
-Bodyhit_Attack_random_number = rand();
-Bodyhit_Attack = (int)Bodyhit_Attack_random_number % 101; //랜덤숫자 0~100
-*/
-
-/*
-앞으로의 계획
-
-rand함수를 사용한다. 다만 그 범위는 "첫 라인(1?) ~ line_number" 까지로 한다.
-
-이후 랜덤숫자가 나온데로 for와 fgets를 사용해 링크를 읽은 다음 재생한다.
-
-(반복)
-
-*/
-
-/*
-오류)
-
-특정 곡만 실행되는 현상이 있음.
-
-*/

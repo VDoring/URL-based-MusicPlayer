@@ -37,7 +37,7 @@ int WindowTitleNowcount; // (윈도우타이틀 출력용)현재 재생한 휫수 저장
 int WindowtitleTotalcount; // (윈도우타이틀 출력용)빈 라인을 제외한 .txt파일의 총 라인 수
 
 /* .txt파일 총 라인수 계산 */
-void WinTitleTotal() {
+void WinTitleTotal() { //빈라인을 제외한 총 라인 갯수를 세는 함수(윈도우타이틀 출력을 위한 함수)
 	int non_blank_line_number = line_number; // 빈라인 휫수 포함한 line_number의 값을 non_blank_line_number에 저장
 	non_blank_line_number++; // (왜 1을 더했는진 22~24줄의 주석을 참고하세요)
 	int non_blank_for = non_blank_line_number; // for문에 사용할 변수. 빈 라인 휫수가 포함되있는 상태

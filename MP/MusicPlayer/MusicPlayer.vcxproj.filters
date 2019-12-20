@@ -15,13 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Mlist.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="Func_1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Func_2.c">
@@ -30,15 +29,19 @@
     <ClCompile Include="Func_3.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Func_4.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Mlist.txt">
-      <Filter>소스 파일</Filter>
-    </Text>
   </ItemGroup>
 </Project>
