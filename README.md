@@ -22,14 +22,14 @@
 
 ### 1.
 ![1](https://user-images.githubusercontent.com/50266731/66263846-8a6f3c80-e834-11e9-9b96-f6606203160f.PNG)
-#### [다운로드](https://github.com/VDoring/URL-based-MusicPlayer/releases) 받아 압축을 풀기
+#### [다운로드](https://github.com/VDoring/URL-based-MusicPlayer/releases) 받아 압축을 풀기.
 #### [Download](https://github.com/VDoring/URL-based-MusicPlayer/releases) and extract the file.
 
 <br/>
 
 ### 2.
 ![2](https://user-images.githubusercontent.com/50266731/66263851-af63af80-e834-11e9-9b40-1f06dd2fef9b.PNG)
-#### Mlist파일을 열기
+#### Mlist파일을 열기.
 #### Open Mlist file
 
 <br/>
@@ -43,22 +43,22 @@
 
 ### 4.
 ![4](https://user-images.githubusercontent.com/50266731/66263854-b7235400-e834-11e9-8474-f99ee16d519e.PNG)
-#### MusicPlayer를 실행하기
+#### MusicPlayer를 실행.
 #### Run MusicPlayer
 
 <br/>
 
 ### 5.
 ![5](https://user-images.githubusercontent.com/50266731/66263855-b8ed1780-e834-11e9-9aa9-7ff804795222.PNG)
-#### 재생 형식을 선택하세요. 현재는 1번, 2번만 작동합니다
-#### Please select a replay format. Now, you can only use Function 1 and 2. 
+#### 재생 형식을 선택하세요. 현재는 1번, 2번, 3-1만 작동합니다.
+#### Please select a replay format. Now, you can only use Function 1, 2 뭉 3-1. 
 
 
 <br/>
 
 ### 6.
 ![6](https://user-images.githubusercontent.com/50266731/66263856-bab6db00-e834-11e9-8fac-bfd6bfa0e2f7.PNG)
-#### 이후 크롬 프라이빗모드로 재생되며, 음악을 다 들었을때 다음곡을 재생할껀지에 대한 질문에 답합니다
+#### 이후 크롬 프라이빗모드로 재생되며, 음악을 다 들었을때 다음곡을 재생할껀지에 대한 질문에 답합니다.
 #### It will then be played in chrome private mode, and when you've finished listening to the music, answer the question if you'll play the next song
 
 <br/>
