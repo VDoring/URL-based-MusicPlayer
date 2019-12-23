@@ -59,13 +59,16 @@ int main() {
 
 //				[·£´ý¸ðµå] - 2¹ø(°î Áßº¹ºÒ°¡ ·£´ý¸ðµå)
 				else if (play_random_mode_input == 50) {
-					Save_RandomNum();
+					//Save_RandomNum();
+					random_num_array_save();
 					No_overlap_Musiclist_play();
 					for (int i = 0; i < line_number; i++) {
 						No_overlap_Qusetion_Continue();
 						if (play_no_overlap_continue_input == 1) {
+							/*
 							Random_Select();
-							Save_RandomNum();
+							random_num_array_save();
+							*/
 							No_overlap_Musiclist_play();
 						}
 						else if (play_no_overlap_continue_input == 2) return 1;
