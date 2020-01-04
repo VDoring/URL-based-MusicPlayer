@@ -11,7 +11,7 @@ int main() {
 
 //		[메인화면] - 1번
 		if (main_input == 49) {
-//			[플레이모드]
+//			[플레이모드] - 안내창
 			playmodeGUI();
 
 //			[플레이모드] - 1번
@@ -41,11 +41,10 @@ int main() {
 //			[플레이모드] - 3번
 			else if (play_input == 51) {
 				Musiclist_line_Read_3(); // .txt파일 라인 수 카운팅
-				Random_Select(); //난수 기반 랜덤 곡 정함
 				Random_mode(); //랜덤모드 선택 CUI
-
 //				[랜덤모드] - 1번(곡 중복가능 랜덤모드)
 				if (play_random_mode_input == 49) {
+					Random_Select(); //난수 기반 랜덤 곡 정함
 					Musiclist_Play();
 					for (int i = 0; i < line_number; i++) {
 						Question_Continue();
@@ -59,16 +58,12 @@ int main() {
 
 //				[랜덤모드] - 2번(곡 중복불가 랜덤모드)
 				else if (play_random_mode_input == 50) {
-					//Save_RandomNum();
-					random_num_array_save();
+					//random_num_array_save();
+					No_overlap_random();
 					No_overlap_Musiclist_play();
 					for (int i = 0; i < line_number; i++) {
 						No_overlap_Qusetion_Continue();
 						if (play_no_overlap_continue_input == 1) {
-							/*
-							Random_Select();
-							random_num_array_save();
-							*/
 							No_overlap_Musiclist_play();
 						}
 						else if (play_no_overlap_continue_input == 2) return 1;
@@ -87,7 +82,8 @@ int main() {
 			}
 		}
 
-		else { //메인화면에서 잘 못 입력했을 경우
+//		[메인화면] - 다른 숫자를 입력했을 경우
+		else {
 			printf("re-enter Please!"); Sleep(300);
 		}
 	}

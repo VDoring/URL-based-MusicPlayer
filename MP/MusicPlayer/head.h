@@ -37,8 +37,9 @@ void Musiclist_Play(); // 음악 재생
 
 /* 음악재생 - 4번(중복제외 랜덤) 기능 */
 int play_no_overlap_continue_input; //(중복재생금지모드 전용)다음 곡 재생할껀지에 대한 값 입력
-void Save_RandomNum(); //랜덤 모드시 라인 넘버를 저장하는 함수. (중복으로 음악이 실행되는걸 방지하기 위함)
-void random_num_array_save(); //중복없는 랜덤숫자를 linecount의 수만큼 뽐음
+//void Save_RandomNum(); //랜덤 모드시 라인 넘버를 저장하는 함수. (중복으로 음악이 실행되는걸 방지하기 위함)
+//void random_num_array_save(); //중복없는 랜덤숫자를 linecount의 수만큼 뽐음
+void No_overlap_random(); //순서대로 나열된 배열을 셔플 및 배열에 저장
 void No_overlap_Musiclist_play(); //(음악중복재생 방지) 음악플레이
 void File_close4(); // .txt 파일 닫기 및 윈도우타이틀 값 초기화
 
