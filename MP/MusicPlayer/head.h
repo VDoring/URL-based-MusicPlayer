@@ -34,6 +34,7 @@ void File_close2(); // .txt 파일 닫기 및 윈도우타이틀 값 초기화
 void Musiclist_line_Read_3(); // .txt파일 라인 수 카운팅
 void Random_Select(); // 랜덤한 수를 기반으로 재생할 링크를 정하는 함수
 void Musiclist_Play(); // 음악 재생
+void File_Close3(); // .txt 파일 닫기, 윈도우타이틀 값 초기화 및 일회용 변수 초기화
 
 /* 음악재생 - 4번(중복제외 랜덤) 기능 */
 int play_no_overlap_continue_input; //(중복재생금지모드 전용)다음 곡 재생할껀지에 대한 값 입력

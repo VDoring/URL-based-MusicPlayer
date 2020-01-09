@@ -54,6 +54,7 @@ int main() {
 						}
 						else if (play_continue_input == 2) return 0;
 					}
+					File_Close3();
 				}
 
 //				[·£´ý¸ðµå] - 2¹ø(°î Áßº¹ºÒ°¡ ·£´ý¸ðµå)

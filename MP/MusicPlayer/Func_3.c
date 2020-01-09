@@ -41,8 +41,9 @@ void Random_Select() { //난수 기반으로 재생할 링크를 정하는 함수
 	}
 }
 
-
+int empty_line_check = 0; //빈라인 체크를 했는지 확인하는 변수. 0과 1로 구분
 char fileread[4096]; // .txt파일 한줄읽기용 문자열
+//char save_empty_line_number[8000] = { 0, }; //빈 라인의 번호를 저장하는 배열. Random변수의 값을 저장함
 const char CMD_Static_command_3[100] = { "start chrome --incognito" }; // 크롬 시크릿모드 실행 명령어
 char cache_Music1_3[100];// 명령어 저장
 char cache_Music2_3[8092];// fileread 문자열과 같은 역할
@@ -53,11 +54,48 @@ void Musiclist_Play() {
 	fopen_s(&fp, "Mlist.txt", "rt");
 	rewind(fp);
 
+
+	//실행 전에 먼저 빈 라인을 체크하는 구문. 한번만 실행되어야 함
+	if (empty_line_check == 0) {
+		empty_line_check++; //한번만 실행하기 위한 구분
+		int empty_line_check_for = line_number + 1; //밑의 for문에 사용할 변수
+		int empty_line_count_minus = 0; //빈 라인 갯수 카운트
+
+		for (int i = 0; i < empty_line_check_for; i++) {//총 줄 수만큼 반복
+			fgets(fileread, sizeof(fileread), fp);
+			if (fileread[0] == '\n') empty_line_count_minus++; //공백이면 빈라인 카운트 + 1
+			else continue;
+		}
+		line_number = line_number - empty_line_count_minus; //계산 완료 후 빈라인의 수를 뺀다.
+		rewind(fp);
+	}
+
 	for (int i = 0; i < Random; i++) {
 		fgets(fileread, sizeof(fileread), fp);
 	}
-	
-	//나중에 빈 라인 처리코드 만들기
+
+	//랜덤값으로 뽑은 라인의 공백 여부 채크 및 다시 뽑기
+	//int empty_line_for = 0;
+	if (fileread[0] == '\n') { //만약 공백인 경우
+		while (1) {
+			rewind(fp);
+			Random_Select(); //랜덤숫자를 다시 고름
+			for (int j = 0; j < Random; j++) {
+				fgets(fileread, sizeof(fileread), fp);
+			}
+			if (fileread[0] == '\n') continue; //그래도 공백일 경우 똑같은 과정을 반복
+			else if (fileread[0] != '\n') break; //링크를 찾았을 경우 루프 탈출
+		}
+	}
+	/*
+	빈 라인 번호를 받을 배열 선언
+	만약 빈 라인일 경우 그 배열에 저장.
+	만약 Random값이 그 배열에 있을경우 취소, 다른걸 재생한다.
+
+	...라고 계획을 세웠으나, 이 기능은 중복 곡 재생이 가능했기에 필요가 없었다.
+	그냥 공백여부 확인과 다시 뽑는것으로 방법을 바꾸겠다.
+	*/
+
 
 	sprintf_s(cache_Music1_3, sizeof(cache_Music1_3), "%s", CMD_Static_command_3);
 	sprintf_s(cache_Music2_3, sizeof(cache_Music2_3), "%s", fileread);
@@ -70,4 +108,9 @@ void Musiclist_Play() {
 
 	fclose(fp);
 
+}
+
+void File_Close3() {
+	empty_line_check = 0;
+	fclose(fp);
 }
