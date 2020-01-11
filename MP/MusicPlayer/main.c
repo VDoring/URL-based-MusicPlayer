@@ -59,7 +59,6 @@ int main() {
 
 //				[·£´ý¸ðµå] - 2¹ø(°î Áßº¹ºÒ°¡ ·£´ý¸ðµå)
 				else if (play_random_mode_input == 50) {
-					//random_num_array_save();
 					No_overlap_random();
 					No_overlap_Musiclist_play();
 					for (int i = 0; i < line_number; i++) {
