@@ -25,7 +25,6 @@ void Musiclist_line_Read_3() { // .txt파일 라인 수 카운팅
 
 }
 
-
 int random_number; //rand함수의 값을 담는 곳
 int linkRandom_line_number = 0; // .txt파일 라인 수 저장
 int Random; //random_number의 값을 받는 변수(랜덤숫자 최종)
@@ -41,15 +40,20 @@ void Random_Select() { //난수 기반으로 재생할 링크를 정하는 함수
 	}
 }
 
+const char WindowTitleCMD3[10] = { "title" }; //CMD에 고정적으로 입력되는 명령어
+int NowCount3 = 0; //현재 몇번 실행했는지를 담는 변수
+int WindowTitleNowcount; //윈도우타이틀 출력용 Nowcount3
+int WindowtitleTotalcount; // 빈 라인을 제외한 .txt파일의 총 라인 수
+
 int empty_line_check = 0; //빈라인 체크를 했는지 확인하는 변수. 0과 1로 구분
 char fileread[4096]; // .txt파일 한줄읽기용 문자열
-//char save_empty_line_number[8000] = { 0, }; //빈 라인의 번호를 저장하는 배열. Random변수의 값을 저장함
 const char CMD_Static_command_3[100] = { "start chrome --incognito" }; // 크롬 시크릿모드 실행 명령어
 char cache_Music1_3[100];// 명령어 저장
 char cache_Music2_3[8092];// fileread 문자열과 같은 역할
 char *ptr_linkcut_result; // 오직 링크만 저장
 char *contact_3 = NULL; //cache_Music2_2 문자열에서 자른 나머지 문자열을 저장
 char Musiclink_3[8192] = { 0, }; // 최종 음악재생 명령어
+char WindowTitle3[110] = { 0, }; //최종 아티틀 명령어
 void Musiclist_Play() {
 	fopen_s(&fp, "Mlist.txt", "rt");
 	rewind(fp);
@@ -67,6 +71,7 @@ void Musiclist_Play() {
 			else continue;
 		}
 		line_number = line_number - empty_line_count_minus; //계산 완료 후 빈라인의 수를 뺀다.
+		WindowtitleTotalcount = line_number + 1; //윈도우타이틀 최대곡수 출력위한 값 복사
 		rewind(fp);
 	}
 
@@ -75,7 +80,6 @@ void Musiclist_Play() {
 	}
 
 	//랜덤값으로 뽑은 라인의 공백 여부 채크 및 다시 뽑기
-	//int empty_line_for = 0;
 	if (fileread[0] == '\n') { //만약 공백인 경우
 		while (1) {
 			rewind(fp);
@@ -87,15 +91,6 @@ void Musiclist_Play() {
 			else if (fileread[0] != '\n') break; //링크를 찾았을 경우 루프 탈출
 		}
 	}
-	/*
-	빈 라인 번호를 받을 배열 선언
-	만약 빈 라인일 경우 그 배열에 저장.
-	만약 Random값이 그 배열에 있을경우 취소, 다른걸 재생한다.
-
-	...라고 계획을 세웠으나, 이 기능은 중복 곡 재생이 가능했기에 필요가 없었다.
-	그냥 공백여부 확인과 다시 뽑는것으로 방법을 바꾸겠다.
-	*/
-
 
 	sprintf_s(cache_Music1_3, sizeof(cache_Music1_3), "%s", CMD_Static_command_3);
 	sprintf_s(cache_Music2_3, sizeof(cache_Music2_3), "%s", fileread);
@@ -108,9 +103,20 @@ void Musiclist_Play() {
 
 	fclose(fp);
 
+
+	// WindowTitle 출력
+	NowCount3++;
+
+	WindowTitleNowcount = NowCount3;
+
+	sprintf_s(WindowTitle3, sizeof(WindowTitle3), "%s Playing.. [%d/%d]", WindowTitleCMD3, WindowTitleNowcount, WindowtitleTotalcount);
+
+	system(WindowTitle3);
+
 }
 
 void File_Close3() {
 	empty_line_check = 0;
 	fclose(fp);
+	NowCount3 = 0;
 }

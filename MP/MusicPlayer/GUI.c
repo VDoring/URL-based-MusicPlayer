@@ -64,7 +64,7 @@ void Random_mode() { //랜덤모드 선택 CUI
 void No_overlap_Qusetion_Continue() { //(중복재생금지모드 전용)다음 곡 재생할껀지 물는 CUI
 	system(WindowSize); int x = 0, y = 0;
 
-	gotoxy(x + 8, y + 4); printf("Random Music Continue?");
+	gotoxy(x + 10, y + 4); printf("Next Music Continue?");
 	gotoxy(x + 11, y + 6); printf("[1] Yes     [2] No");
 	gotoxy(x + 10, y + 10); printf("Input : ");
 	gotoxy(x + 19, y + 10); scanf_s("%d", &play_no_overlap_continue_input);

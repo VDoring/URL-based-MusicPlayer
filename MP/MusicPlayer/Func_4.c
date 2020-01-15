@@ -41,15 +41,11 @@ void No_overlap_random() { //순서대로 나열된 배열을 셔플 및 배열에 저장
 	musiclist_arr[z2] = swap_temp;
 }
 
-/*
-[이후 빈라인 대응 방향]
 
-먼저 빈 라인인지 체크
-빈라인일경우 해당 빈라인의 musiclist_arr 숫자 값을 0으로 만듬
-
-이후 musiclist_arr의 숫자를 읽을때 0이라면 그냥 다음걸로 재생되게 하고, line_number값도 하나 마이너스함
-*/
-
+const char WindowTitleCMD4[10] = { "title" }; //CMD에 고정적으로 입력되는 명령어
+int NowCount4 = 0; //현재 몇번 실행했는지를 담는 변수
+int WindowTitleNowcount; //윈도우타이틀 출력용 Nowcount2
+int WindowtitleTotalcount; // 빈 라인을 제외한 .txt파일의 총 라인 수
 
 int empty_line_check_2 = 0; //빈라인 체크를 했는지 확인하는 변수. 0과 1로 구분
 int arraynum_read = 0; //save_random_number 배열의 값을 읽기위한 숫자를 저장
@@ -62,65 +58,43 @@ char cache_Music2_4[8092];
 char *ptr_linkcut_result;
 char *contact_4 = NULL; //cache_Music2_2 문자열에서 자른 나머지 문자열을 저장
 char Musiclink_4[8192] = { 0, }; // 최종 음악재생 명령어
+char WindowTitle4[110] = { 0, }; //최종 아티틀 명령어
 void No_overlap_Musiclist_play() { //(음악중복재생 방지) 음악플레이
 	fopen_s(&fp, "Mlist.txt", "rt");
 	rewind(fp);
 	
 	//배열에 있는 번호를 먼저 체크. 빈라인은 배열값에서 0으로 만들어 미리 line_number값을 빼도록 한다.
-	if (empty_line_check_2 == 0) { //빈라인 체크가 처음이면
+	if (empty_line_check_2 == 0) { //빈라인 체크가 처음일때만 실행
 		empty_line_check_2++;
 		while (1) {
 			for (int j = 0; j < musiclist_arr[arraynum_read]; j++) {
 				fgets(fileread, sizeof(fileread), fp);
 			}
 
-			if (fileread[0] == '\n') {
-				musiclist_arr[arraynum_read] = -1;
-				line_number--;
+			if (fileread[0] == '\n') { //해당숫자가 빈라인일때
+				musiclist_arr[arraynum_read] = -1; //-1을 저장함으로써 빈라인 구분
+				line_number--; //줄 수에서도 마이너스
 			}
-			else if (musiclist_arr[arraynum_read] == 0) {
+			else if (musiclist_arr[arraynum_read] == 0) { //곡을 다 검사했을때
 				arraynum_read = 0;
+				WindowtitleTotalcount = line_number + 1; //윈도우타이틀 최대곡수 출력위한 값 복사
 				break;
 			}
 			arraynum_read++;
-			fileread[0] = 'x'; //만약 musiclist_arr의 마지막 배열칸이 \n일경우 77번 줄이 실행되어 끝나지 않는 오류가 생기기 때문에 x라는 임의의 값을 넣는다.
+			fileread[0] = 'x'; //만약 musiclist_arr의 마지막 배열칸을 읽은게 '\n'일경우 68번 줄이 실행되어 끝나지 않는 오류가 생기기 때문에 x라는 임의의 값을 넣는다.
 			rewind(fp);
 		}
 	}
 
-	/*(주의)만약 실행가능한 링크가 연속으로 먼저 실행되서 더이상 실행할것이 없어도 빈 라인에 대한 체크를 한다. 이는 오동작을 야기
 	while (1) {
-		for (int j = 0; j < musiclist_arr[arraynum_read]; j++) {
-			fgets(fileread, sizeof(fileread), fp);
-		}
-
-		if (fileread[0] == '\n') {
-			if (musiclist_arr[arraynum_read] == '0') return;
-			arraynum_read++;
-			line_number--;
-			rewind(fp);
-		}
-		else if (fileread[0] != '\n') break;
-	}*/
-
-	while (1) {
-		if (musiclist_arr[arraynum_read] == -1) {
-			arraynum_read++;
+		if (musiclist_arr[arraynum_read] == -1) { //빈 라인일경우
+			arraynum_read++; //다음 배열칸으로 넘어감
 			continue;
 		}
 
 		for (int j = 0; j < musiclist_arr[arraynum_read]; j++) {
 			fgets(fileread, sizeof(fileread), fp);
 		}
-
-		/*
-		if (fileread[0] == -1) {
-			arraynum_read++;
-			rewind(fp);
-			continue;
-		}*/
-
-		//if (fileread[0] != '\n')
 		break;
 	}
 
@@ -136,6 +110,16 @@ void No_overlap_Musiclist_play() { //(음악중복재생 방지) 음악플레이
 	arraynum_read++;
 
 	fclose(fp);
+
+
+	// WindowTitle 출력
+	NowCount4++;
+
+	WindowTitleNowcount = NowCount4;
+
+	sprintf_s(WindowTitle4, sizeof(WindowTitle4), "%s Playing.. [%d/%d]", WindowTitleCMD4, WindowTitleNowcount, WindowtitleTotalcount);
+
+	system(WindowTitle4);
 }
 
 
@@ -148,4 +132,6 @@ void File_close4() { // .txt 파일 닫음
 	}
 
 	fclose(fp);
+
+	NowCount4 = 0;
 }
