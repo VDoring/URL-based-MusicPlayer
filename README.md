@@ -1,18 +1,18 @@
 # URL-based-MusicPlayer
 
-![MPMainPic](https://user-images.githubusercontent.com/50266731/68986830-df0bcb80-0866-11ea-83a7-711d1d74aede.PNG)
+![MP main](https://user-images.githubusercontent.com/50266731/72433631-18b47080-37dd-11ea-8cc0-4442ce6b0d81.png)
 
 ## Introduction
 
-- #### URL(인터넷 주소)를 사용하는 간단하고 가벼운 음악 플레이어입니다.
-- #### A simple, lightweight music player that uses an Internet address(URL).
+- #### URL(인터넷 주소)를 사용하는 간단한 음악 플레이어입니다.
+- #### A simple music player that uses an Internet address(URL).
 
 <br/>
 
 ## Motivation
 
-- #### 저는 메모장에 음악 링크를 저장해 복사/붙여넣기해 듣습니다. 하지만 링크를 일일이 복사 붙여넣기하는게 귀찮고 비효율적이였기에, 이런 역할을 좀 더 편리하게해줄 프로그램을 생각하게 되었습니다.
-- #### When I listen to music, I save the music link in a notepad and copy/paste it. But copying and pasting links was cumbersome and inefficient, so I came to think of a program that would simplify this role.
+- #### 저는 메모장에 음악 링크를 저장해 듣는데, 링크를 매번 복사/붙여넣고 하는것은 비효율적입니다. 그래서 이 과정을 편리하게 할 프로그램을 생각하게 되었습니다.
+- #### I listen to music links in a memo pad, and it's inefficient to copy/paste each link. so I've come to think of a program that makes this way for this role.
 
 <br/>
 
@@ -35,21 +35,22 @@
 <br/>
 
 ### 3.
-![A or B](https://user-images.githubusercontent.com/50266731/67374468-2e3e4380-f5bc-11e9-9659-9b7c596f17a3.PNG)
-#### 사진과 같은 형식으로 링크넣기. (링크는 무조껀 앞에 있어야 합니다!)
-#### Insert a link as in a picture. (The link should be in front!)
+![Mlist link Example](https://user-images.githubusercontent.com/50266731/72433798-7d6fcb00-37dd-11ea-888e-d8b51aae71b8.png)
+#### 인터넷 주소 추가. (링크는 무조껀 앞에 있어야 합니다!)
+#### Insert Internet address. (The link should be in front!)
 
 <br/>
 
 ### 4.
-![4](https://user-images.githubusercontent.com/50266731/66263854-b7235400-e834-11e9-8474-f99ee16d519e.PNG)
+![MP](https://user-images.githubusercontent.com/50266731/72434261-80b78680-37de-11ea-8d27-e88da4e06fa5.PNG)
 #### MusicPlayer를 실행.
 #### Run MusicPlayer
 
 <br/>
 
 ### 5.
-![5](https://user-images.githubusercontent.com/50266731/66263855-b8ed1780-e834-11e9-9aa9-7ff804795222.PNG)
+![MP2](https://user-images.githubusercontent.com/50266731/72434278-8e6d0c00-37de-11ea-8d38-3fc8ecb4a031.PNG)
+![MP2-1](https://user-images.githubusercontent.com/50266731/72434307-9a58ce00-37de-11ea-98a4-d473a284130a.PNG)
 #### 재생 형식을 선택하세요.
 #### Please select a replay format.
 
@@ -57,25 +58,17 @@
 <br/>
 
 ### 6.
-![6](https://user-images.githubusercontent.com/50266731/66263856-bab6db00-e834-11e9-8fac-bfd6bfa0e2f7.PNG)
+![MPlay1](https://user-images.githubusercontent.com/50266731/72434386-c96f3f80-37de-11ea-9ab1-947587b97ca8.PNG)
 #### 이후 크롬 프라이빗모드로 재생되며, 음악을 다 들었을때 다음곡을 재생할껀지에 대한 질문에 답합니다.
 #### It will then be played in chrome private mode, and when you've finished listening to the music, answer the question if you'll play the next song
 
 <br/>
 
 ### 7.
-![7](https://user-images.githubusercontent.com/50266731/66263857-bc809e80-e834-11e9-8a36-4a372b90b829.PNG)
-#### 이후 반복..
-#### Continue..
+![Mplay2](https://user-images.githubusercontent.com/50266731/72434399-d3913e00-37de-11ea-97fc-2c4f53a77ed2.PNG)
+#### 플레이한 음악 수와 총 음악 수는 프로그램 창에 실시간으로 표시됩니다.
+#### The number of songs you play and the total number of songs are displayed in real time in the Programs pane.
 -----------
-
-<br/>
-
-## ▧ __개발중인 프로젝트__ | __Under Development Project__
-- #### 개발중인 자료들은 "version" 브랜치에 있습니다!
-- #### The contents under development are in the "version" branch.
-
-<br/>
 
 ---------------------------------
 ## Development Environment
