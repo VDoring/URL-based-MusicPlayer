@@ -11,8 +11,8 @@
 
 ## Motivation
 
-- #### 저는 메모장에 음악 링크를 저장해 듣는데, 링크를 매번 복사/붙여넣고 하는것은 비효율적입니다. 그래서 이 과정을 편리하게 할 프로그램을 생각하게 되었습니다.
-- #### I listen to music links in a memo pad, and it's inefficient to copy/paste each link. so I've come to think of a program that makes this way for this role.
+- #### 저는 메모장에 음악 링크를 저장해 듣습니다. 하지만 이 작업을 수동으로 하기엔 번거로워 자동으로 음악을 재생하는 프로그램을 생각하게 되었습니다.
+- #### I save the music link in a notepad. But it was cumbersome to do this manually, so I came to think of a program that automatically plays music.
 
 <br/>
 
